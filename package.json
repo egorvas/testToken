@@ -1,0 +1,22 @@
+{
+  "name": "test_token",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "truffle test"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "openzeppelin-solidity": "^2.3.0",
+    "openzeppelin-test-helpers": "^0.4.3"
+  },
+  "dependencies": {
+    "mocha-junit-reporter": "^1.23.1"
+  }
+}
