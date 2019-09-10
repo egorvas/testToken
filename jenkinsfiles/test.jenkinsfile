@@ -23,7 +23,7 @@ pipeline {
         stage('Run tests') {
             steps {
               withEnv(["HOST=$JOB_NAME-ganache"]) {
-                  sh '''npm i
+                  sh '''npm i --dev
                   npm test
                   '''
                   junit 'test-results.xml'
