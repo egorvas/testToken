@@ -1,0 +1,45 @@
+pipeline {
+    agent { label "docker-slave" }
+    options { disableConcurrentBuilds() }
+
+    stages {
+        stage("Start docker ganache") {
+        agent { label "node3" }
+          steps {
+            cleanWs()
+            sh '''
+                docker stop $JOB_NAME-ganache || true && docker rm $JOB_NAME-ganache || true
+                docker run -d --network reportportal_default --memory='512m' -p 8545:8545 --name $JOB_NAME-ganache trufflesuite/ganache-cli:latest
+            '''
+          }
+        }
+        stage("Checkout") {
+          steps {
+            cleanWs()
+            checkout([$class: 'GitSCM', branches: [[name: 'master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '83ff6dc5-45b4-4996-b383-e1f225203f3c', url: 'git@github.com:egorvas/testToken.git']]])
+          }
+        }
+
+        stage('Run tests') {
+            steps {
+              withEnv(["HOST=$JOB_NAME-ganache"]) {
+                  sh '''npm i
+                  npm test
+                  '''
+                  junit 'test-results.xml'
+              }
+            }
+        }
+
+    }
+    post {
+      always {
+        node('node3') {
+          cleanWs()
+          sh '''
+                docker stop $JOB_NAME-ganache || true && docker rm $JOB_NAME-ganache || true
+           '''
+        }
+      }
+    }
+}
