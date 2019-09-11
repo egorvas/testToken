@@ -1,5 +1,0 @@
-<testsuite name="Mocha Tests" tests="3" failures="0" errors="0" skipped="0" timestamp="Wed, 11 Sep 2019 13:28:28 GMT" time="1.081">
-<testcase classname="Contract: TestToken" name="should return the correct name" time="0.091"/>
-<testcase classname="Contract: TestToken" name="should return the correct symbol" time="0.105"/>
-<testcase classname="Contract: TestToken" name="should return the correct decimals" time="0.126"/>
-</testsuite>
