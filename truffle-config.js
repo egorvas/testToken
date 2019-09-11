@@ -11,12 +11,12 @@ module.exports = {
   },
 
   // Set default mocha options here, use special reporters etc.
-  mocha: {
-    reporter: "mocha-multi-reporters",
-    reporterOptions: {
-    configFile: "mocha-multi-reporters-config.json",
-      }
-  },
+  // mocha: {
+  //   reporter: "mocha-multi-reporters",
+  //   reporterOptions: {
+  //   configFile: "mocha-multi-reporters-config.json",
+  //     }
+  // },
 
   compilers: {
     solc: {
