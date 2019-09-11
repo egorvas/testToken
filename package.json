@@ -14,6 +14,9 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "openzeppelin-solidity": "^2.3.0",
-    "openzeppelin-test-helpers": "^0.4.3"
+    "openzeppelin-test-helpers": "^0.4.3",
+  },
+  "dependencies": {
+    "mocha-junit-reporter": "^1.23.1"
   }
 }
