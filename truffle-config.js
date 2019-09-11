@@ -12,7 +12,7 @@ module.exports = {
 
   // Set default mocha options here, use special reporters etc.
   mocha: {
-    "reporter": "mocha-multi-reporters",
+    reporter: "mocha-multi-reporters",
     reporterOptions: {
     configFile: "mocha-multi-reporters-config.json",
       }
