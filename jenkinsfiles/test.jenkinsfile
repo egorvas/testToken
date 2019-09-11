@@ -24,11 +24,9 @@ pipeline {
             steps {
               withEnv(["HOST=$JOB_NAME-ganache"]) {
                   sh '''npm i --save-dev
-                  npm install mocha-junit-reporter
-                  npm install mocha-multi-reporters
                   npm test
                   '''
-                  junit 'test-results.xml'
+                  junit 'xunit.xml'
               }
             }
         }
